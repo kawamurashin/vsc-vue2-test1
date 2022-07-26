@@ -1,0 +1,20 @@
+{
+    "name": "express",
+    "version": "1.0.0",
+    "license": "proprietary",
+    "scripts": {
+        "build": "tsc -b",
+        "start": "node dist/server/main.js",
+        "watch": "tsc -w",
+        "nodemon": "nodemon dist/express/main.js"
+    },
+    "dependencies": {
+        "@types/express": "^4.17.13",
+        "@types/node": "^18.6.1",
+        "express": "^4.18.1",
+        "mongoose": "^6.4.7",
+        "nodemon": "^2.0.19",
+        "ts-node": "^10.9.1",
+        "typescript": "^4.7.4"
+    }
+}

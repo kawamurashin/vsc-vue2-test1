@@ -1,5 +1,10 @@
 # vue-project
 
+``` shell
+vue add vuetify
+```
+
+
 ## Project setup
 ```
 yarn install
