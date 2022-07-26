@@ -20,4 +20,15 @@ export class LoadManager
             return {"status" : "error"}
         }
     }
+
+    async orderChange(obj){
+        try{
+            const res = await axios.post("/orderChange", obj);
+            return  res.data;
+        }catch (e) {
+            return {"status" : "error"}
+        }
+    }
+
+
 }

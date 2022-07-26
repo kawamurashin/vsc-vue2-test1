@@ -31,6 +31,12 @@ export class ModelManager extends EventTarget{
         return data;
     }
 
+    async orderChange(obj)
+    {
+        let data = await this.loadManager.orderChange(obj)
+        return data;
+    }
+
 
 
     intervalLoad = () =>

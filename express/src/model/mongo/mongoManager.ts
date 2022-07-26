@@ -73,7 +73,37 @@ export class MongoManager extends EventEmitter {
             const result = await card.save();
             return  {
                 "status":"ok",
-                "result":result
+
+            };
+        }catch (e) {
+            return {
+                "status":"error"
+            }
+        }
+
+    }
+
+
+    public orderChange = async (obj) => {
+        try{
+
+            let items = obj.items;
+
+
+            const cards = await this._cardModel.find();
+            const n = items.length;
+            for(let i = 0;i<n;i++)
+            {
+                let item = items[i];
+                let card = cards.find(element => element._id == item._id)
+                if(card){
+                    card.order =  item.order;
+                    card.save();
+                }
+            }
+
+            return  {
+                "status":"ok",
 
             };
         }catch (e) {

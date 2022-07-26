@@ -33,6 +33,10 @@ export class ModelManager extends EventEmitter {
         return await this._mongoManger.add(obj);
     }
 
+    public orderChange = async (obj) => {
+        return await this._mongoManger.orderChange(obj);
+    }
+
 
 
 

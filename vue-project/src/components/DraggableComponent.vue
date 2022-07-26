@@ -52,7 +52,7 @@ export default {
       }*/
       this.drag = false;
 
-      this.$emit('draggable-end')
+      this.$emit('draggable-end' , this.items)
     },
     renameClickHandler(item){
       const data ={

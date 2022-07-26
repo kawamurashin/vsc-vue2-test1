@@ -53,9 +53,29 @@ export default {
     },
     childClickHandler() {
       console.log("child click");
+      console.log("hoge");
+
+      
     },
-    dragEndHandler() {
+    dragEndHandler(items) {
       //console.log("dragEndHandler")
+      let n = items.length
+      for(let i = 0;i<n;i++)
+      {
+        let obj = items[i];
+        obj.order = i.toString();
+        //console.log("obj " + JSON.stringify(obj));
+      }
+      const obj = {
+        "items": items
+      }
+      ModelManager.getInstance().orderChange(obj).then(result => {
+        if(result.status == "ok"){
+
+          this.load();
+          //console.log("order change complete2 " + JSON.stringify(result))
+        }
+      })
 
     },
     renameClickHandler(data) {
