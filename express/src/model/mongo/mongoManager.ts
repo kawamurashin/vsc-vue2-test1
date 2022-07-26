@@ -37,7 +37,7 @@ export class MongoManager extends EventEmitter {
      */
     public get = async () => {
 
-        const result = await this._cardModel.find().sort({room_id: 1});
+        const result = await this._cardModel.find().sort({order: 1});
         return result;
     }
     public post = async (obj) => {
@@ -46,6 +46,28 @@ export class MongoManager extends EventEmitter {
             const card = new this._cardModel({
                 name: obj.name,
                 order: count
+            });
+
+            const result = await card.save();
+            return  {
+                "status":"ok",
+                "result":result
+
+            };
+        }catch (e) {
+            return {
+                "status":"error"
+            }
+        }
+
+    }
+    public add = async (obj) => {
+        try{
+            const count = await this._cardModel.find().count()
+            const card = new this._cardModel({
+                name: obj.name,
+                order: count,
+                date : new Date()
             });
 
             const result = await card.save();

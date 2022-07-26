@@ -25,6 +25,14 @@ export class ModelManager extends EventTarget{
         return data;
     }
 
+    async add(obj)
+    {
+        let data = await this.loadManager.add(obj)
+        return data;
+    }
+
+
+
     intervalLoad = () =>
     {
         setTimeout(this.eventLoad,3000)

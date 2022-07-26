@@ -5,9 +5,17 @@ export class LoadManager
         try{
             const res = await axios.get("/data.json");
             return  {
-                "status" : "error",
+                "status" : "ok",
                 "data":res.data
             };
+        }catch (e) {
+            return {"status" : "error"}
+        }
+    }
+    async add(obj){
+        try{
+            const res = await axios.post("/add", obj);
+            return  res.data;
         }catch (e) {
             return {"status" : "error"}
         }

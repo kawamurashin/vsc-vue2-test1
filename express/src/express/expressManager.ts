@@ -36,6 +36,7 @@ export class ExpressManager extends EventEmitter {
         app.get("/data.json", (req, res) => {
             let modelManager: ModelManager = ModelManager.getInstance();
             modelManager.get().then((result) =>{
+              /*
                 const obj ={
                     "data": {
                       "name": "hogehoge",
@@ -58,6 +59,12 @@ export class ExpressManager extends EventEmitter {
                         }
                       ]
                     }
+                  }*/
+                  const obj ={
+                    "data": {
+                      "name": "tables",
+                      "tables": result
+                    }
                   }
                 res.json(obj);
             })
@@ -66,6 +73,13 @@ export class ExpressManager extends EventEmitter {
         app.post('/post', function (req, res) {
             let modelManager: ModelManager = ModelManager.getInstance();
             modelManager.post(req.body).then(result => {
+                res.json(result);
+            })
+        })
+
+        app.post('/add', function (req, res) {
+            let modelManager: ModelManager = ModelManager.getInstance();
+            modelManager.add(req.body).then(result => {
                 res.json(result);
             })
         })
