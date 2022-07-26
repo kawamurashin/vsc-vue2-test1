@@ -3,7 +3,9 @@
 ``` shell
 vue add vuetify
 ```
-
+```
+yarn add axios vuedraggable
+```
 
 ## Project setup
 ```
